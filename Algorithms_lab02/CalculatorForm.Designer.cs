@@ -1,4 +1,4 @@
-﻿namespace Algorithms_lab02
+namespace Algorithms_lab02
 {
     partial class CalculatorForm
     {
@@ -31,6 +31,10 @@
             tabControl = new TabControl();
             tabCalc = new TabPage();
             panel1 = new Panel();
+            resultLCM = new Label();
+            resultGCD = new Label();
+            LCMLabel = new Label();
+            GCDLabel = new Label();
             btnCalcGCDLCM = new Button();
             num2TextBox = new TextBox();
             num1TextBox = new TextBox();
@@ -38,13 +42,14 @@
             num1Lb = new Label();
             tabSteps = new TabPage();
             tabVisual = new TabPage();
-            GCDLabel = new Label();
-            LCMLabel = new Label();
-            resultGCD = new Label();
-            resultLCM = new Label();
+            stepsListBox = new ListBox();
+            visualPictureBox = new PictureBox();
             tabControl.SuspendLayout();
             tabCalc.SuspendLayout();
             panel1.SuspendLayout();
+            tabSteps.SuspendLayout();
+            tabVisual.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)visualPictureBox).BeginInit();
             SuspendLayout();
             // 
             // tabControl
@@ -54,18 +59,20 @@
             tabControl.Controls.Add(tabVisual);
             tabControl.Dock = DockStyle.Fill;
             tabControl.Location = new Point(0, 0);
+            tabControl.Margin = new Padding(3, 2, 3, 2);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(800, 450);
+            tabControl.Size = new Size(700, 338);
             tabControl.TabIndex = 0;
             // 
             // tabCalc
             // 
             tabCalc.Controls.Add(panel1);
-            tabCalc.Location = new Point(4, 29);
+            tabCalc.Location = new Point(4, 24);
+            tabCalc.Margin = new Padding(3, 2, 3, 2);
             tabCalc.Name = "tabCalc";
-            tabCalc.Padding = new Padding(3);
-            tabCalc.Size = new Size(792, 417);
+            tabCalc.Padding = new Padding(3, 2, 3, 2);
+            tabCalc.Size = new Size(692, 310);
             tabCalc.TabIndex = 0;
             tabCalc.Text = "Калькулятор НОД/НОК";
             tabCalc.UseVisualStyleBackColor = true;
@@ -82,16 +89,53 @@
             panel1.Controls.Add(num2Lb);
             panel1.Controls.Add(num1Lb);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(786, 411);
+            panel1.Size = new Size(686, 306);
             panel1.TabIndex = 0;
+            // 
+            // resultLCM
+            // 
+            resultLCM.AutoSize = true;
+            resultLCM.Location = new Point(227, 151);
+            resultLCM.Name = "resultLCM";
+            resultLCM.Size = new Size(0, 15);
+            resultLCM.TabIndex = 8;
+            // 
+            // resultGCD
+            // 
+            resultGCD.AutoSize = true;
+            resultGCD.Location = new Point(227, 113);
+            resultGCD.Name = "resultGCD";
+            resultGCD.Size = new Size(0, 15);
+            resultGCD.TabIndex = 7;
+            resultGCD.Click += label1_Click;
+            // 
+            // LCMLabel
+            // 
+            LCMLabel.AutoSize = true;
+            LCMLabel.Location = new Point(183, 151);
+            LCMLabel.Name = "LCMLabel";
+            LCMLabel.Size = new Size(35, 15);
+            LCMLabel.TabIndex = 6;
+            LCMLabel.Text = "НОК:";
+            // 
+            // GCDLabel
+            // 
+            GCDLabel.AutoSize = true;
+            GCDLabel.Location = new Point(183, 113);
+            GCDLabel.Name = "GCDLabel";
+            GCDLabel.Size = new Size(36, 15);
+            GCDLabel.TabIndex = 5;
+            GCDLabel.Text = "НОД:";
             // 
             // btnCalcGCDLCM
             // 
-            btnCalcGCDLCM.Location = new Point(529, 23);
+            btnCalcGCDLCM.Location = new Point(463, 17);
+            btnCalcGCDLCM.Margin = new Padding(3, 2, 3, 2);
             btnCalcGCDLCM.Name = "btnCalcGCDLCM";
-            btnCalcGCDLCM.Size = new Size(180, 81);
+            btnCalcGCDLCM.Size = new Size(158, 61);
             btnCalcGCDLCM.TabIndex = 4;
             btnCalcGCDLCM.Text = "Вычислить НОД И НОК";
             btnCalcGCDLCM.UseVisualStyleBackColor = true;
@@ -99,27 +143,29 @@
             // 
             // num2TextBox
             // 
-            num2TextBox.Location = new Point(209, 77);
+            num2TextBox.Location = new Point(183, 58);
+            num2TextBox.Margin = new Padding(3, 2, 3, 2);
             num2TextBox.Name = "num2TextBox";
             num2TextBox.PlaceholderText = "1432";
-            num2TextBox.Size = new Size(285, 27);
+            num2TextBox.Size = new Size(250, 23);
             num2TextBox.TabIndex = 3;
             // 
             // num1TextBox
             // 
-            num1TextBox.Location = new Point(209, 23);
+            num1TextBox.Location = new Point(183, 17);
+            num1TextBox.Margin = new Padding(3, 2, 3, 2);
             num1TextBox.Name = "num1TextBox";
             num1TextBox.PlaceholderText = "754";
-            num1TextBox.Size = new Size(285, 27);
+            num1TextBox.Size = new Size(250, 23);
             num1TextBox.TabIndex = 2;
             // 
             // num2Lb
             // 
             num2Lb.AutoSize = true;
             num2Lb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            num2Lb.Location = new Point(38, 73);
+            num2Lb.Location = new Point(33, 55);
             num2Lb.Name = "num2Lb";
-            num2Lb.Size = new Size(165, 28);
+            num2Lb.Size = new Size(130, 21);
             num2Lb.TabIndex = 1;
             num2Lb.Text = "Введите число 2:";
             // 
@@ -127,79 +173,72 @@
             // 
             num1Lb.AutoSize = true;
             num1Lb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            num1Lb.Location = new Point(38, 19);
+            num1Lb.Location = new Point(33, 14);
             num1Lb.Name = "num1Lb";
-            num1Lb.Size = new Size(165, 28);
+            num1Lb.Size = new Size(130, 21);
             num1Lb.TabIndex = 0;
             num1Lb.Text = "Введите число 1:";
             // 
             // tabSteps
             // 
-            tabSteps.Location = new Point(4, 29);
+            tabSteps.Controls.Add(stepsListBox);
+            tabSteps.Location = new Point(4, 24);
+            tabSteps.Margin = new Padding(3, 2, 3, 2);
             tabSteps.Name = "tabSteps";
-            tabSteps.Padding = new Padding(3);
-            tabSteps.Size = new Size(792, 417);
+            tabSteps.Padding = new Padding(3, 2, 3, 2);
+            tabSteps.Size = new Size(692, 310);
             tabSteps.TabIndex = 1;
             tabSteps.Text = "Шаги алгоритма Евклида";
             tabSteps.UseVisualStyleBackColor = true;
             // 
             // tabVisual
             // 
-            tabVisual.Location = new Point(4, 29);
+            tabVisual.Controls.Add(visualPictureBox);
+            tabVisual.Location = new Point(4, 24);
+            tabVisual.Margin = new Padding(3, 2, 3, 2);
             tabVisual.Name = "tabVisual";
-            tabVisual.Padding = new Padding(3);
-            tabVisual.Size = new Size(792, 417);
+            tabVisual.Padding = new Padding(3, 2, 3, 2);
+            tabVisual.Size = new Size(692, 310);
             tabVisual.TabIndex = 2;
             tabVisual.Text = "Визуализация вычитанием";
             tabVisual.UseVisualStyleBackColor = true;
             // 
-            // GCDLabel
+            // stepsListBox
             // 
-            GCDLabel.AutoSize = true;
-            GCDLabel.Location = new Point(209, 151);
-            GCDLabel.Name = "GCDLabel";
-            GCDLabel.Size = new Size(44, 20);
-            GCDLabel.TabIndex = 5;
-            GCDLabel.Text = "НОД:";
+            stepsListBox.Dock = DockStyle.Fill;
+            stepsListBox.FormattingEnabled = true;
+            stepsListBox.ItemHeight = 15;
+            stepsListBox.Location = new Point(3, 2);
+            stepsListBox.Name = "stepsListBox";
+            stepsListBox.Size = new Size(686, 306);
+            stepsListBox.TabIndex = 0;
             // 
-            // LCMLabel
+            // visualPictureBox
             // 
-            LCMLabel.AutoSize = true;
-            LCMLabel.Location = new Point(209, 201);
-            LCMLabel.Name = "LCMLabel";
-            LCMLabel.Size = new Size(43, 20);
-            LCMLabel.TabIndex = 6;
-            LCMLabel.Text = "НОК:";
-            // 
-            // resultGCD
-            // 
-            resultGCD.AutoSize = true;
-            resultGCD.Location = new Point(259, 151);
-            resultGCD.Name = "resultGCD";
-            resultGCD.Size = new Size(0, 20);
-            resultGCD.TabIndex = 7;
-            resultGCD.Click += label1_Click;
-            // 
-            // resultLCM
-            // 
-            resultLCM.AutoSize = true;
-            resultLCM.Location = new Point(259, 201);
-            resultLCM.Name = "resultLCM";
-            resultLCM.Size = new Size(0, 20);
-            resultLCM.TabIndex = 8;
+            visualPictureBox.Dock = DockStyle.Fill;
+            visualPictureBox.Location = new Point(3, 2);
+            visualPictureBox.Name = "visualPictureBox";
+            visualPictureBox.Size = new Size(686, 306);
+            visualPictureBox.TabIndex = 0;
+            visualPictureBox.TabStop = false;
+            visualPictureBox.Paint += visualPictureBox_Paint;
             // 
             // CalculatorForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(tabControl);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CalculatorForm";
             Text = "Калькулятор НОД И НОК ";
             tabControl.ResumeLayout(false);
             tabCalc.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            tabSteps.ResumeLayout(false);
+            tabVisual.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)visualPictureBox).EndInit();
             ResumeLayout(false);
         }
 
@@ -219,5 +258,7 @@
         private Label LCMLabel;
         private Label GCDLabel;
         private Label resultLCM;
+        private ListBox stepsListBox;
+        private PictureBox visualPictureBox;
     }
 }
