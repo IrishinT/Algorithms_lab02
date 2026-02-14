@@ -88,6 +88,19 @@ LCM(a, b) = |a * b| / GCD(a, b)
 
 ---
 
+### Как установить
+
+**Выполнить команду**
+`git clone https://github.com/IrishinT/Algorithms_lab02`
+
+---
+
+### Требования
+* C# .NET 8.0.20+
+Visual Studio 2019+ (Желательно)
+
+---
+
 ## Сборка и запуск
 
 1. Открыть проект в Visual Studio
